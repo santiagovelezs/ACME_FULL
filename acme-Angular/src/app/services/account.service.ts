@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class AccountService {
   user: User;
 
-  readonly URL_API = "http://localhost:5000/acme/api/auth/";
+  readonly URL_API = "http://localhost:3000/acme/api/auth/";
 
   constructor(private http: HttpClient) {
     this.user = new User();

@@ -7,7 +7,7 @@ import { Photo } from '../models/Photo'
 })
 export class PhotoService {
 
-  readonly URL_API = "http://localhost:5000/acme/api/photos";
+  readonly URL_API = "http://localhost:3000/acme/api/photos";
 
   constructor(private http: HttpClient) { }
 

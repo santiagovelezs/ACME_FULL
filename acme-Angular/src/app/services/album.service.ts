@@ -7,7 +7,7 @@ import { Album } from '../models/Album'
 })
 export class AlbumService {
 
-  readonly URL_API = "http://localhost:5000/acme/api/albums";
+  readonly URL_API = "http://localhost:3000/acme/api/albums";
 
   constructor(private http: HttpClient) { }
 

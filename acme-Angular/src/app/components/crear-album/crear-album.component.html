@@ -1,0 +1,30 @@
+<header>
+    <app-navbar>
+
+    </app-navbar>
+</header>
+
+<div class="container">
+    
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Crear Album
+                </div>
+                <div class="card-body">  
+                    <form (submit)="createAlbum(name)">                                         
+                        <div class="form-group">                             
+                            <input type="text" placeholder="Name" #name>                    
+                        </div>                        
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">
+                                Crear
+                            </button>
+                        </div>
+                    </form>                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

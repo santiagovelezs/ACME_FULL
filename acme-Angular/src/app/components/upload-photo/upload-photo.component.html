@@ -1,0 +1,54 @@
+<header>
+    <app-navbar>
+
+    </app-navbar>
+</header>
+
+<div class="container">
+
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary" [routerLink]="['/crear-album']">Crear Album</button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Publica tus mejores momentos en el hotel ACME!
+                </div>
+                <div class="card-body">
+                    <form (submit)="uploadPhoto(title, album)">
+                        <input type="text" class="d-none" value="index" #album>
+                        <div class="form-group">
+                            <textarea rows="3" class="form-control" placeholder="Describe tu foto" required
+                                #title></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="d-none" (change)="onPhotoSelect($event)" #photoInput>
+                            <img [src]="photoSelected || 'assets/select-image.png'" width="250px" class="img-fluid"
+                                alt="Select Image" (click)="photoInput.click()">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Mis Álbumes
+                </div>
+                <div class="card-body">
+                    <p *ngFor="let album of albums">{{ album.name }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

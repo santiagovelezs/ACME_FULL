@@ -1,0 +1,52 @@
+<nav class="navbar-dark bg-dark">
+
+    <ul class="nav nav-pills nav-justified ">
+        <li>
+            <a class="navbar-brand" href="#">
+                <img src="./assets/title.png" width="70" height="40" alt="">
+            </a>
+        </li>
+        <li class="nav-item">
+            <div *ngIf="title =='home'; then thenblock else elseblock"></div>
+            <ng-template #thenblock><a class="nav-link active" href="#">Home</a></ng-template>
+            <ng-template #elseblock><a class="nav-link" href="#">Home</a></ng-template>
+
+        </li>
+        <li class="nav-item">
+            <div *ngIf="title =='habitaciones'; then thenblock1 else elseblock1"></div>
+            <ng-template #thenblock1><a class="nav-link active" href="/habitaciones">Habitaciones</a></ng-template>
+            <ng-template #elseblock1><a class="nav-link" href="/habitaciones">Habitaciones</a></ng-template>
+        </li>
+        <li class="nav-item">
+            <div *ngIf="title =='galeria'; then thenblock2 else elseblock2"></div>
+            <ng-template #thenblock2><a class="nav-link active" href="/galeria">Galeria</a></ng-template>
+            <ng-template #elseblock2><a class="nav-link" href="/galeria">Galeria</a></ng-template>
+        </li>
+        <li class="nav-item">
+            <div *ngIf="title =='contacto'; then thenblock3 else elseblock3"></div>
+            <ng-template #thenblock3><a class="nav-link active" href="/contacto">Contacto</a></ng-template>
+            <ng-template #elseblock3><a class="nav-link" href="/contacto">Contacto</a></ng-template>
+
+        </li>
+        <li class="nav-item">
+
+            <div *ngIf="title =='reseñas'; then thenblock4 else elseblock4"></div>
+            <ng-template #thenblock4><a class="nav-link active" href="/reviews">Reseñas</a></ng-template>
+            <ng-template #elseblock4><a class="nav-link" href="/reviews">Reseñas</a></ng-template>
+        </li>
+        <li *ngIf="!isLoggedIn"  class="nav-item">
+            <a class="nav-link" href="/signup"><img src="./assets/icon-user.png" width="20" height="20" alt="">Sign Up</a>
+        </li>
+        <div *ngIf="!isLoggedIn; else loggedOut">
+            <li class="nav-item">
+                <a class="nav-link" href="/login"><img src="./assets/login-xxl.png" width="20" height="20" alt="">Login</a>
+            </li>
+        </div>
+        <ng-template #loggedOut>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout"><img src="./assets/login-xxl.png" width="20" height="20" alt="">LogOut</a>
+            </li>
+        </ng-template>        
+    </ul>
+</nav>
+

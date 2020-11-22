@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <header>
+        <app-navbar title="home">
+
+        </app-navbar>
+    </header>
+    <h1>Bienvenido</h1>
+    <div class="abs-center">
+        <div class="stars row">
+            <img src="./assets/white.png" width="50" height="50">
+            <img src="./assets/white.png" width="50" height="50">
+            <img src="./assets/white.png" width="50" height="50">
+        </div>
+
+    </div>
+    <div class="abs-center">
+        <div class="rec">
+
+            <label class="l">Calidad</label>
+
+
+            <p class="descrip">El Hotel ACME cuenta con 50 habitaciones que haran de su esatadia turistica o empresarial una experiencia con la altura, sobriedad y distincion que merece</p>
+
+
+            <label class="loc">Ubicado en la CLL45 A51-20, tel 888 00 00</label>
+
+        </div>
+    </div>
+    <footer class="footer">
+        <label>Reservas & Reseñas</label>
+        <button class="btn" [routerLink]="['/signup']">Registrate</button>
+        <label>¿Ya tienes una cuenta?</label>
+        <button class="btn" [routerLink]="['/login']">Inicia sesión</button>
+    </footer>
+</body>
+
+</html>

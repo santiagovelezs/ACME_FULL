@@ -1,0 +1,28 @@
+body {
+    height: 100%;
+    min-height: 100vh;
+}
+
+.nav-link {
+    color: aliceblue !important;
+}
+
+.nav-link:hover {
+    background-color: #007bff;
+}
+
+.card-user-img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.text-username {
+    margin-left: 1%;
+}
+
+.card {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}

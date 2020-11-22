@@ -1,0 +1,77 @@
+<header>
+    <app-navbar title="galeria">
+
+    </app-navbar>
+</header>
+<div class="row mt-4">
+    <div class="col-md-12 text-center">
+        <button type="button" class="btn btn-primary" [routerLink]="['/upload-photo']">Publicar Foto</button>
+    </div>
+</div>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-header">
+            <img class="card-user-img" src="./assets/user-avatar1.png">
+            <strong class="text-username">username</strong>
+        </div>
+        <img class="card-img-top" src="./assets/gallery1.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Title</h5>
+            <p class="card-text">This is description card with supporting text below as a natural lead-in to additional
+                content.</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <img class="card-user-img" src="./assets/user-avatar2.png">
+            <strong class="text-username">username</strong>
+        </div>
+        <img class="card-img-top" src="./assets/gallery2.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Title</h5>
+            <p class="card-text">This description has supporting text below as a natural lead-in to additional content.
+            </p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <img class="card-user-img" src="./assets/user-avatar3.png">
+            <strong class="text-username">username</strong>
+        </div>
+        <img class="card-img-top" src="./assets/gallery3.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Title</h5>
+            <p class="card-text">This description has supporting text below as a natural lead-in to additional content.
+            </p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+</div>
+
+
+    <div class="card-deck">
+        <div class="card" *ngFor="let photo of photos">
+            <div class="card-header">
+                <img class="card-user-img" src="./assets/user-avatar3.png">
+                <strong class="text-username">{{ photo.album.user.name }}</strong>
+            </div>
+            <img class="card-img-top" [src]="'http://localhost:5000/' + photo.path" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">{{ photo.title }}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>

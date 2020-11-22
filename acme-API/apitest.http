@@ -1,0 +1,7 @@
+POST http://localhost:5000/acme/api/auth/signin
+Content-Type: application/json
+
+{
+    "email": "admin@acmehotels",
+    "password": "secret"
+}

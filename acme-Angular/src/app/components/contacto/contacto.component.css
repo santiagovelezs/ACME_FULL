@@ -1,0 +1,66 @@
+body {
+    background-image: url('/assets/background.jpg');
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+    min-height: 100vh;
+}
+
+.icon-img {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.info {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.card {
+    margin-top: 8%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.card1 {
+    background-color: rgba(255, 255, 255, 0.233);
+}
+
+.form-gruop,
+.icon-img,
+.info {
+    opacity: 1;
+    margin-left: 10%;
+}
+
+.map-container-5 {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-container-5 iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*min-height: 100vh;*/
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}

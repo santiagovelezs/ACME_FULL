@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Album } from '../models/Album'
 
 @Injectable({
@@ -27,4 +27,9 @@ export class AlbumService {
     );    
     return this.http.get<Album[]>(this.URL_API, {headers:header});
   }
+
+  getAlbumById(id: string) {    
+    return this.http.get<Album>(this.URL_API+ `/${id}`);
+  }
+  
 }

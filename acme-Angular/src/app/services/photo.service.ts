@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Photo } from '../models/Photo'
+import { Album } from '@app/models/Album';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class PhotoService {
 
   getPhotos() {
     return this.http.get<Photo[]>(this.URL_API);
+  }
+
+  getPhotosByAlbumId(id: string) {
+    const params = new HttpParams().append('id', id);
+    return this.http.get<Photo[]>(this.URL_API + `/${id}`);
   }
     
 }

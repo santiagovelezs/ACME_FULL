@@ -13,6 +13,8 @@ import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario
 import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { CrearAlbumComponent } from './components/crear-album/crear-album.component'
+import { AlbumComponent } from './components/album/album.component'
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,7 +29,8 @@ const routes: Routes = [
   {path: 'perfilusuario', component: PerfilusuarioComponent},
   {path: 'upload-photo', component: UploadPhotoComponent},
   {path: 'logout', component: LogoutComponent},
-  {path: 'crear-album', component: CrearAlbumComponent}
+  {path: 'crear-album', component: CrearAlbumComponent},
+  {path: 'album/:id', component: AlbumComponent}
 ];
 
 @NgModule({

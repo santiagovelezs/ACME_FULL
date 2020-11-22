@@ -3,30 +3,49 @@ import jwt from "jsonwebtoken"
 import config from "../config"
 
 export const createAlbum = async (req, res) => {
-    try{        
-        const { name, token } = req.body        
+    try {
+        const { name, token } = req.body
         const decoded = jwt.verify(token, config.SECRET)
-        let userID = decoded.id      
-               
+        let userID = decoded.id
+
         const Newalbum = new Album({
-            name,             
-            user:userID                  
-        })        
+            name,
+            user: userID
+        })
         const savedAlbum = await Newalbum.save()
         return res.status(200).json({
             _id: savedAlbum._id,
-            name: savedAlbum.name          
+            name: savedAlbum.name
         })
-    }catch(error){
+    } catch (error) {
         console.log(error)
         return res.status(401).send()
     }
 }
 
-export const getAlbums = async (req, res) => {
-    const  token = req.header('Authorization')
-    const decoded = jwt.verify(token, config.SECRET)
-    let userID = decoded.id
-    const albums = await Album.find( {user: userID} )
-    return res.json(albums)
+export const getAlbumsByUserId = async (req, res) => {
+    try {
+        const token = req.header('Authorization')
+        const decoded = jwt.verify(token, config.SECRET)
+        let userID = decoded.id
+        const albums = await Album.find({ user: userID })
+        return res.json(albums)
+    } catch (error) {
+        console.log("Acaaaaa: ",error)
+        return res.status(401).send()
+    }
+}
+
+export const getAlbumById = async (req, res) => {
+    try {
+        const { id } = req.params
+        console.log("Album Id: ",id)
+        const album = await Album.findOne({ _id: id })
+        console.log("Nameeeeeeeeeeeeeeeeeeee: ",album.name)
+        return res.json(album)
+    } catch (error) {
+        console.log(error)
+        return res.status(401).send()
+    }
+
 }

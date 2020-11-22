@@ -49,8 +49,14 @@ export const getPhotos = async (req, res) => {
     return res.json(photos)
 }
 
-
-
-
-
-
+export const getPhotosByAlbumId = async (req, res) => {
+    const  { id } = req.params 
+    console.log("ALBUM ID: ", id)
+    const photos = await Photo.find( { album :  id }).populate({
+        path: 'album',
+        populate: {
+            path: 'user'
+        }
+    })
+    return res.json(photos)
+}

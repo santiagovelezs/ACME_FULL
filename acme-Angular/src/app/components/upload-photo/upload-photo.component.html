@@ -1,5 +1,5 @@
 <header>
-    <app-navbar>
+    <app-navbar title="galeria">
 
     </app-navbar>
 </header>
@@ -46,7 +46,9 @@
                     Mis Álbumes
                 </div>
                 <div class="card-body">
-                    <p *ngFor="let album of albums">{{ album.name }}</p>
+                    <p *ngFor="let album of albums">                                             
+                        <a [routerLink]="['/album', album._id]">{{ album.name }}</a>
+                    </p>                    
                 </div>
             </div>
         </div>

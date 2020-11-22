@@ -1,8 +1,11 @@
 <header>
-    <app-navbar title="galeria">
+    <app-navbar title="Album">
 
     </app-navbar>
 </header>
+
+<h1>ALBUM</h1>
+<h2 *ngIf="album" class="text-muted">{{ album.name }}</h2>
 
 <div class="row mt-4">
     <div class="col-md-12 text-center">
@@ -11,7 +14,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4" *ngFor="let photo of photos">
+    <div class="col-md-4" *ngFor="let photo of photosAlbum">
         <div class="card">
             <div class="card-header">
                 <img class="card-user-img" src="./assets/user-avatar3.png">

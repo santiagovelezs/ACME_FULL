@@ -20,6 +20,7 @@ import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario
 import { ReservarComponent } from './components/reservar/reservar.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { CrearAlbumComponent } from './components/crear-album/crear-album.component';
+import { AlbumComponent } from './components/album/album.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { CrearAlbumComponent } from './components/crear-album/crear-album.compon
     HomeComponent,
     LoginComponent,    
     ReviewsComponent, 
-    SignupComponent, AlertComponent, UploadPhotoComponent, DetallehabitacionComponent, NavbarComponent, PerfilusuarioComponent, ReservarComponent, LogoutComponent, CrearAlbumComponent,
+    SignupComponent, AlertComponent, UploadPhotoComponent, DetallehabitacionComponent, NavbarComponent, PerfilusuarioComponent, ReservarComponent, LogoutComponent, CrearAlbumComponent, AlbumComponent,
   ],
   imports: [
     BrowserModule,

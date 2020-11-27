@@ -13,7 +13,7 @@ router.use((req, res, next) => {
   })
   
   router.post("/signup",  authController.signUp)  
-  router.post("/signin", authController.signIn)
+  router.post("/signin", authController.signIn)  
 
   export default router;
   

@@ -1,3 +1,4 @@
+import { VerifyTokenGuard } from './guards/verify-token.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -27,7 +28,7 @@ const routes: Routes = [
   {path: 'detallehabitacion', component: DetallehabitacionComponent},
   {path: 'reservar', component: ReservarComponent},
   {path: 'perfilusuario', component: PerfilusuarioComponent},
-  {path: 'upload-photo', component: UploadPhotoComponent},
+  {path: 'upload-photo', component: UploadPhotoComponent, canActivate: [VerifyTokenGuard]},
   {path: 'logout', component: LogoutComponent},
   {path: 'crear-album', component: CrearAlbumComponent},
   {path: 'album/:id', component: AlbumComponent}

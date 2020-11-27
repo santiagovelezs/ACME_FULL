@@ -20,7 +20,7 @@
                 </div>
                 <div class="card-body">
                     <form (submit)="uploadPhoto(title, album)">
-                        <input type="text" class="d-none" value="index" #album>
+                        <input type="text" class="d-none" value="{{ albumName }}" #album>
                         <div class="form-group">
                             <textarea rows="3" class="form-control" placeholder="Describe tu foto" required
                                 #title></textarea>
@@ -31,10 +31,19 @@
                                 alt="Select Image" (click)="photoInput.click()">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block">
-                                Guardar
-                            </button>
+                            <h2>Album : </h2> <p class="text-warning">{{ albumName }}</p>                            
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <div *ngFor="let album of albums">
+                                    <button (click)="selAlbum(album.name)" type="button"
+                                        class="btn btn-info">{{ album.name }}</button>
+                                </div>
+                            </div>
                         </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">
+                                    Guardar
+                            </button>
+                        </div>                        
                     </form>
                 </div>
             </div>
@@ -46,9 +55,9 @@
                     Mis Álbumes
                 </div>
                 <div class="card-body">
-                    <p *ngFor="let album of albums">                                             
+                    <p *ngFor="let album of albums">
                         <a [routerLink]="['/album', album._id]">{{ album.name }}</a>
-                    </p>                    
+                    </p>
                 </div>
             </div>
         </div>

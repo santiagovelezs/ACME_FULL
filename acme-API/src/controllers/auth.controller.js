@@ -63,7 +63,7 @@ const signUp = async (req, res) => {
     } catch (error) {
       console.log('Errorrrrr: ',error)
     }
-  }
+  } 
 
   module.exports = {
     signIn,

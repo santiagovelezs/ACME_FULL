@@ -12,6 +12,7 @@ export class UploadPhotoComponent implements OnInit {
 
   file: File;
   photoSelected: string | ArrayBuffer;
+  albumName = "index";
   albums = [];
 
   constructor(
@@ -33,6 +34,10 @@ export class UploadPhotoComponent implements OnInit {
     console.log(this.albums)
   }
 
+  selAlbum(albumName: string){
+    this.albumName = albumName;
+  }
+
   onPhotoSelect(e): void {
     if(e.target.files && e.target.files[0]) {
       this.file = e.target.files[0];
@@ -47,7 +52,7 @@ export class UploadPhotoComponent implements OnInit {
       .subscribe(res => {
         this.router.navigate(['/galeria']);
         }, err => {
-          console.log(err)
+          console.log(err);
           localStorage.removeItem('token');
           this.router.navigate(['/login']);
         }

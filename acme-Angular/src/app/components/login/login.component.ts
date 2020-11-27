@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
     .subscribe(res => {      
       localStorage.setItem('token', res.token);
       this.router.navigate(['/galeria']);
+      this.accountService.isLogged = true;
       }, err => {
         console.log(err)
         this.router.navigate(['/login']);

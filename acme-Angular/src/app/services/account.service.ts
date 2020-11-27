@@ -8,6 +8,8 @@ import { Injectable } from '@angular/core';
 export class AccountService {
   user: User;
 
+  isLogged = false;
+
   readonly URL_API = "http://localhost:3000/acme/api/auth/";
 
   constructor(private http: HttpClient) {
@@ -20,6 +22,10 @@ export class AccountService {
 
   signin(user: User){
     return this.http.post<{token:  string}>(this.URL_API+'signin', user );
+  }
+
+  logout(){
+    this.isLogged = false;    
   }
 
 }

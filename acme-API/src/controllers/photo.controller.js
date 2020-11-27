@@ -14,7 +14,7 @@ export const createPhoto = async (req, res) => {
         {
             console.log("Crear Album")
             const NewAlbum = new Album({
-                title: album,
+                name: album,
                 user: userID
             })
             const savedAlbum = await NewAlbum.save()

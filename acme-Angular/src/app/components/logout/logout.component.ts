@@ -1,3 +1,4 @@
+import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private accountService: AccountService) { }
 
   ngOnInit(): void {
     localStorage.removeItem('token');
+    this.accountService.logout();
     this.router.navigate(['/login']);
   }
 

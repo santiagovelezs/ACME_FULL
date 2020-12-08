@@ -42,12 +42,29 @@ export class ReservarComponent implements OnInit
             res => {
               console.log(res)
               this.formReserva.reset()
-              this.getReservas()
+              this.getReservas()              
               this.msg = "Reserva Exitosa"
               this.getReservas()
             },
-            error => console.log(error)
+            error => {
+              console.log(error)
+              this.msg = error.error.msg
+            }
           )
+  }
+
+  deleteReserva(id: string)
+  {
+    console.log("ID: ",id)
+    this.reservaService.delete(id)
+        .subscribe(
+          res => {
+            console.log(res)
+          },
+          err => {
+            console.log(err)
+          }
+        )
   }
 
   getReservas()

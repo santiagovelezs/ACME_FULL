@@ -26,7 +26,7 @@
                                 #title></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="file" class="d-none" (change)="onPhotoSelect($event)" #photoInput>
+                            <input type="file" accept="image/*" class="d-none" (change)="onPhotoSelect($event)" #photoInput>
                             <img [src]="photoSelected || 'assets/select-image.png'" width="250px" class="img-fluid"
                                 alt="Select Image" (click)="photoInput.click()">
                         </div>

@@ -20,6 +20,17 @@ export class ReservaService
     return this.http.post<{control: string}>(this.URL_API, reserva, { headers: header })    
   }
 
+  delete(id: string)
+  {
+    let header = new HttpHeaders().set(
+      "Authorization",
+      localStorage.getItem("token")
+    );
+    console.log("iD:",id)
+    header.set("id", id)
+    return this.http.delete<{control: string}>(this.URL_API, { headers: header })
+  }
+
   get()
   {
     let header = new HttpHeaders().set(

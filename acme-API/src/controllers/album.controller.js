@@ -67,3 +67,13 @@ export const getAlbumById = async (req, res) => {
     }
 
 }
+
+export const getrate = async (req, res) => {
+    try {               
+        const rates = await Rating.find()
+        return res.json(rates)
+    } catch (error) {
+        console.log("Acaaaaa: ",error)
+        return res.status(401).send()
+    }
+}

@@ -46,4 +46,8 @@ export class AlbumService {
       );
   }
 
+  getRates() {    
+    return this.http.get<Rate[]>(this.URL_API + '/rate');
+  }
+
 }

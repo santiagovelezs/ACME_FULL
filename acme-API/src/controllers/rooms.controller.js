@@ -1,3 +1,4 @@
+import Rating from '../models/Rating'
 import Room from '../models/Room'
 
 export const createRoom = async (req,res) => {
@@ -24,6 +25,8 @@ export const createRoom = async (req,res) => {
         console.log(error)
     }
 }
+
+
 
 export const getRooms = async (req, res) => {
     try{

@@ -21,9 +21,6 @@ export class UploadPhotoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    if(!!!localStorage.getItem('token')){
-      this.router.navigate(['/login']);
-    }  
     this.albumService.getAlbums()
         .subscribe(
           res => {
@@ -53,8 +50,8 @@ export class UploadPhotoComponent implements OnInit {
         this.router.navigate(['/galeria']);
         }, err => {
           console.log(err);
-          localStorage.removeItem('token');
-          this.router.navigate(['/login']);
+          //localStorage.removeItem('token');
+          this.router.navigate(['/galeria']);
         }
       )
   }

@@ -2,7 +2,6 @@ import { Router } from 'express'
 const router = Router()
 
 import * as authController from '../controllers/auth.controller'
-import { verifySignUp } from '../middlewares/verifySignUp'
 
 router.use((req, res, next) => {
     res.header(
@@ -14,6 +13,7 @@ router.use((req, res, next) => {
   
   router.post("/signup",  authController.signUp)  
   router.post("/signin", authController.signIn)  
+  router.post("/verifyToken", authController.verifyToken)  
 
   export default router;
   

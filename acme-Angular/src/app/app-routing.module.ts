@@ -15,6 +15,7 @@ import { UploadPhotoComponent } from './components/upload-photo/upload-photo.com
 import { LogoutComponent } from './components/logout/logout.component';
 import { CrearAlbumComponent } from './components/crear-album/crear-album.component'
 import { AlbumComponent } from './components/album/album.component'
+import { PerfilComponent } from './components/perfil/perfil.component'
 
 
 const routes: Routes = [
@@ -26,12 +27,13 @@ const routes: Routes = [
   {path: 'habitaciones', component: HabitacionesComponent},
   {path: 'reviews', component: ReviewsComponent},
   {path: 'detallehabitacion', component: DetallehabitacionComponent},
-  {path: 'reservar', component: ReservarComponent},
-  {path: 'perfilusuario', component: PerfilusuarioComponent},
+  {path: 'reservar', component: ReservarComponent, canActivate: [VerifyTokenGuard]},
+  {path: 'perfilusuario', component: PerfilusuarioComponent, canActivate: [VerifyTokenGuard]},
   {path: 'upload-photo', component: UploadPhotoComponent, canActivate: [VerifyTokenGuard]},
   {path: 'logout', component: LogoutComponent},
-  {path: 'crear-album', component: CrearAlbumComponent},
-  {path: 'album/:id', component: AlbumComponent}
+  {path: 'crear-album', component: CrearAlbumComponent, canActivate: [VerifyTokenGuard]},
+  {path: 'album/:id', component: AlbumComponent, canActivate: [VerifyTokenGuard]},
+  {path: 'perfil', component: PerfilComponent, canActivate: [VerifyTokenGuard]}
 ];
 
 @NgModule({

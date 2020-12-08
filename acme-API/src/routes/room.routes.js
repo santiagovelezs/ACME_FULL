@@ -13,6 +13,8 @@ router.post('/',
     roomController.createRoom
 )
 
+
+
 router.put('/:roomId',
     [auth.verifyToken, auth.isAdmin],
     roomController.updateRoomById

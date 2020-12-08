@@ -1,0 +1,18 @@
+<header>
+    <app-navbar title="Perfil">
+
+    </app-navbar>
+</header>
+
+<div class="col mt-4">
+    <div class="card">
+        <div class="card-header">
+            Mis Álbumes
+        </div>
+        <div *ngFor="let album of albums; let i = index" class="card-body">            
+                
+            <h2> <a [routerLink]="['/album', album._id]"> {{ album.name }} </a>  </h2>
+            <img class="img-fluid" [src]="'http://localhost:3000/' + photos[i].path" alt="Card image cap">      
+        </div>        
+    </div>
+</div>

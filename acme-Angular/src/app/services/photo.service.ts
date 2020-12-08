@@ -29,7 +29,7 @@ export class PhotoService {
 
   getPhotos() {
     return this.http.get<Photo[]>(this.URL_API);
-  }
+  }  
 
   getPhotosByAlbumId(id: string) {
     const params = new HttpParams().append('id', id);

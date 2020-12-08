@@ -12,7 +12,7 @@
                     <div class="row d-flex">
                         <div class=""> <img class="profile-pic" src="https://i.imgur.com/V3ICjlm.jpg"> </div>
                         <div class="d-flex flex-column">
-                            <h3 class="mt-2 mb-0">username</h3>
+                            <h3 class="mt-2 mb-0">Jhon</h3>
                             <div>
                                 <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span>
                                     <span class="fa fa-star star-inactive"></span>
@@ -34,7 +34,7 @@
                     <div class="row d-flex">
                         <div class=""> <img class="profile-pic" src="./assets/user-avatar2.png"> </div>
                         <div class="d-flex flex-column">
-                            <h3 class="mt-2 mb-0">username</h3>
+                            <h3 class="mt-2 mb-0">Ana</h3>
                             <div>
                                 <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span>
                                     <span class="fa fa-star star-inactive"></span>
@@ -55,9 +55,9 @@
                     <div class="row d-flex">
                         <div class=""> <img class="profile-pic" src="./assets/user-avatar3.png"> </div>
                         <div class="d-flex flex-column">
-                            <h3 class="mt-2 mb-0">username</h3>
+                            <h3 class="mt-2 mb-0">Laura</h3>
                             <div>
-                                <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span>
+                                <p class="text-left"><span class="text-muted">5.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span>
                                     <span class="fa fa-star star-inactive"></span>
                                 </p>
                             </div>
@@ -142,19 +142,21 @@
                         <div class="col-10">
                             <div class="comment-box ml-2 text-left">
                                 <h4>Add a comment</h4>
-                                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                                <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                                <form [formGroup]="formReview">
+                                <div class="rating"> <input type="radio" formControlName="rating" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" formControlName="rating" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" formControlName="rating" name="rating" value="3" id="3"><label for="3">☆</label>
+                                    <input formControlName="rating" type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input formControlName="rating" type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                <div class="comment-area"> <textarea formControlName="coment" class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
                                 <div class="comment-btns mt-2">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="pull-left"> <button class="btn btn-success btn-sm">Cancel</button> </div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="pull-right"> <button class="btn btn-success send btn-sm">Send</button> </div>
+                                            <div class="pull-right"> <button class="btn btn-success send btn-sm" (click)="send(formReview.getRawValue())">Send</button> </div>
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>

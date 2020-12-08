@@ -1,4 +1,5 @@
 import Album from '../models/Album'
+import Rating from '../models/Rating'
 import jwt from "jsonwebtoken"
 import config from "../config"
 
@@ -20,6 +21,23 @@ export const createAlbum = async (req, res) => {
     } catch (error) {
         console.log(error)
         return res.status(401).send()
+    }
+}
+
+export const rate = async (req,res) => {
+    try{
+        console.log(req.body)
+        const { rating, coment } = req.body
+        
+        const rt = new Rating({
+            rating,
+            coment                 
+        })        
+        const savedRate = await rt.save()
+        return res.status(200).json({ message: "Rate Ok" })        
+    }
+    catch(error){
+        console.log(error)
     }
 }
 

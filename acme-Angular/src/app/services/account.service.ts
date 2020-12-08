@@ -1,3 +1,4 @@
+import { Rate } from './../models/Rate';
 import { User } from './../models/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class AccountService {
   user: User;
 
-  isLogged = false;
+  //isLogged = false;
 
   readonly URL_API = "http://localhost:3000/acme/api/auth/";
 
@@ -23,9 +24,12 @@ export class AccountService {
   signin(user: User){
     return this.http.post<{token:  string}>(this.URL_API+'signin', user );
   }
-
-  logout(){
-    this.isLogged = false;    
+  
+  verifyToken(){
+    let token = localStorage.getItem('token'); 
+    return this.http.post<{token: string}>(this.URL_API+'verifyToken', {
+      token
+    } );
   }
 
 }

@@ -1,4 +1,5 @@
 import User from "../models/User"
+import Rating from "../models/Rating"
 
 import jwt from "jsonwebtoken"
 import config from "../config"
@@ -39,7 +40,8 @@ const signUp = async (req, res) => {
       return res.status(500).json(error)
     }
   }
-  
+
+    
   const signIn = async (req, res) => {
     try {    
       console.log(req.body)  
@@ -65,7 +67,23 @@ const signUp = async (req, res) => {
     }
   } 
 
+  const verifyToken = async (req, res) => {
+    try {
+      const { token } = req.body
+      const decoded = jwt.verify(token, config.SECRET)
+      let userID = decoded.id
+      console.log(decoded)
+      res.json({ id:userID })
+    } catch(error) {      
+      console.log('Errorrrrr: ',error)
+      res.status(401).json({        
+        message: "Invalid",
+      })
+    }
+  }
+
   module.exports = {
     signIn,
-    signUp
+    signUp,
+    verifyToken    
   }  

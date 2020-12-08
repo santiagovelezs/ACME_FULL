@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
     res.json('welcome to the ACME API')
 })
 
+
 // Routes
 app.use("/acme/api/auth", authRoutes)
 app.use("/acme/api/users", userRoutes)

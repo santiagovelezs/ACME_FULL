@@ -6,8 +6,7 @@
         <div class="row probootstrap-gutter40">
             <div class="col-md-8">
                 <h2 class="mt0">Reservation Form</h2>
-                <form action="#" method="post" class="probootstrap-form">
-                    <div class="row">
+                <!-- <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fname">First Name</label>
@@ -27,17 +26,18 @@
                             <i class="icon icon-mail"></i>
                             <input type="email" class="form-control" id="email" name="email">
                         </div>
-                    </div>
+                    </div> -->
+                <form [formGroup]="formReserva" (ngSubmit)="saveReserva(formReserva.getRawValue())">
                     <div class="form-group">
                         <label for="room">Room</label>
                         <div class="form-field">
                             <i class="icon icon-chevron-down"></i>
-                            <select name="room" id="room" class="form-control">
-                  <option value="">Select a Room</option>
-                  <option value="1">Habitación estandar</option>
-                  <option value="2">Habitación superior</option>
-                  <option value="3">Habitación lujo</option>
-                </select>
+                            <select name="room" formControlName="room" id="room" class="form-control">
+                                <option value="">Select a Room</option>
+                                <option value="Habitación estandar">Habitación estandar</option>
+                                <option value="Habitación superior">Habitación superior</option>
+                                <option value="Habitación lujo">Habitación lujo</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
@@ -46,7 +46,8 @@
                                 <label for="date-arrival">Arrival</label>
                                 <div class="form-field">
                                     <i class="icon icon-calendar2"></i>
-                                    <input type="text" class="form-control" id="date-arrival" name="date-arrival">
+                                    <input type="date" formControlName="arrival" class="form-control" id="date-arrival"
+                                        name="date-arrival">
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,8 @@
                                 <label for="date-departure">Departure</label>
                                 <div class="form-field">
                                     <i class="icon icon-calendar2"></i>
-                                    <input type="text" class="form-control" id="date-departure" name="date-departure">
+                                    <input type="date" formControlName="departure" class="form-control"
+                                        id="date-departure" name="date-departure">
                                 </div>
                             </div>
                         </div>
@@ -67,13 +69,13 @@
                                 <label for="adults">Adults</label>
                                 <div class="form-field">
                                     <i class="icon icon-chevron-down"></i>
-                                    <select name="adults" id="adults" class="form-control">
-                      <option value="">Number of Adults</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4+</option>
-                    </select>
+                                    <select name="adults" formControlName="adults" id="adults" class="form-control">
+                                        <option value="">Number of Adults</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4+</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -82,27 +84,62 @@
                                 <label for="children">Children</label>
                                 <div class="form-field">
                                     <i class="icon icon-chevron-down"></i>
-                                    <select name="children" id="children" class="form-control">
-                      <option value="">Number of Children</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4+</option>
-                    </select>
+                                    <select name="children" formControlName="children" id="children"
+                                        class="form-control">
+                                        <option value="">Number of Children</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4+</option>
+                                    </select>
                                 </div>
 
                             </div>
+                            <input type="submit" class="btn btn-primary" value="Save" [disabled]="!formReserva.valid">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="Reserve">
+
                     </div>
                 </form>
+                <div *ngIf="msg">
+                    <div class="alert alert-info" role="alert">
+                        {{msg}}
+                    </div>
+                </div>
+
             </div>
             <div class="col-md-4">
                 <h2 class="mt0">Feedback</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                    the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
+                    language ocean.</p>
                 <p><a href="#" class="btn btn-primary" role="button">Send Message</a></p>
+            </div>
+        </div>
+        <div class="row probootstrap-gutter40">
+            <div class="col">
+                <h2 class="text-center">Mis Reservas</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="table-active">Room</th>
+                            <th class="table-active">Arrival</th>
+                            <th class="table-active">Departure</th>
+                            <th class="table-active"># Adults</th>
+                            <th class="table-active"># Children</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reserva of reservas; index as i;" class="">
+                            <th scope="row">{{ reserva.room }}</th>
+                            <th scope="row">{{ reserva.arrival }}</th>
+                            <th scope="row">{{ reserva.departure }}</th>
+                            <th scope="row">{{ reserva.adults }}</th>
+                            <th scope="row">{{ reserva.children }}</th>
+                        </tr>                
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

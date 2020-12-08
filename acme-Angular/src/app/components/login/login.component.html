@@ -51,6 +51,11 @@
                         <label class="lregistrate" [routerLink]="['/signup']" routerLinkActive>Registrate</label>
                     </div>
                 </div>
+                <div *ngIf="msg">
+                    <div class="alert alert-danger" role="alert">
+                        {{ msg }}
+                      </div>                    
+                </div>
             </form>
         </div>
     </div>

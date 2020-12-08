@@ -15,8 +15,13 @@
                 <div class="card-body">  
                     <form (submit)="createAlbum(name)">                                         
                         <div class="form-group">                             
-                            <input type="text" placeholder="Name" #name>                    
-                        </div>                        
+                            <input type="text" placeholder="Name" #name required>                    
+                        </div>   
+                        <div *ngIf="msg">
+                            <div class="alert alert-danger" role="alert">
+                                {{ msg }}
+                              </div>                            
+                        </div>                     
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">
                                 Crear

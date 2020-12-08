@@ -8,6 +8,7 @@ import userRoutes from './routes/user.routes'
 import roomRoutes from './routes/room.routes'
 import photoRoutes from './routes/photo.routes'
 import albumRoutes from './routes/album.routes'
+import reservasRoutes from './routes/reservas.routes'
 import { createAdmin, createCommonUser } from './libs/apiSetup'
 
 const app = express()
@@ -33,5 +34,6 @@ app.use("/acme/api/rooms", roomRoutes)
 app.use("/acme/api/photos", photoRoutes)
 app.use("/uploads", express.static(path.resolve('uploads')))
 app.use("/acme/api/albums", albumRoutes)
+app.use("/acme/api/reservas", reservasRoutes)
 
 export default app

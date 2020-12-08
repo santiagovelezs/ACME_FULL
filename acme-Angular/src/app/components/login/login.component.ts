@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
+  msg: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     
     if (this.form.invalid) {
         console.log("Invalid Form");
+        this.msg = "Esto no es un email valido"
         return;
     }
     
@@ -40,6 +43,7 @@ export class LoginComponent implements OnInit {
       //this.accountService.isLogged = true;
       }, err => {
         console.log(err)
+        this.msg = "Usuario ó contraseña incorrecto"
         this.router.navigate(['/login']);
       }
     )

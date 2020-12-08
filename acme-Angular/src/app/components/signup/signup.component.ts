@@ -46,9 +46,9 @@ export class SignupComponent implements OnInit {
         this.alertService.clear();
 
         // stop here if form is invalid
-        if (this.form.invalid) {console.log("sub2");
+        /*if (this.form.invalid) {console.log("sub2");
             return;
-        }
+        }*/
 
         this.loading = true;
         this.accountService.signup(this.form.value)
@@ -56,6 +56,8 @@ export class SignupComponent implements OnInit {
             .subscribe((res) => {
                 this.form.reset();
                 console.log(res);
+                this.loading = false
+                this.router.navigate(['/login']);
             });
     }
 }

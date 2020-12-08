@@ -8,6 +8,8 @@ import { AlbumService } from '../../services/album.service'
   styleUrls: ['./crear-album.component.css']
 })
 export class CrearAlbumComponent implements OnInit {
+
+  msg: String
  
   constructor(private albumService: AlbumService, private router: Router) { }
 
@@ -16,13 +18,19 @@ export class CrearAlbumComponent implements OnInit {
   }  
 
   createAlbum(name: HTMLInputElement){    
+    if(!name.value)
+    {
+      this.msg = "Invalid name"
+      return;
+    }
+      
     this.albumService.createAlbum(name.value)
         .subscribe(res => {
-          this.router.navigate(['/galeria']);
+          this.router.navigate(['/perfil']);
           }, err => {
             console.log(err)
-            localStorage.removeItem('token');
-            this.router.navigate(['/login']);
+            //localStorage.removeItem('token');
+            this.router.navigate(['/perfil']);
           }
         )
   }

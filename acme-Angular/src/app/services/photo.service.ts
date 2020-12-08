@@ -15,11 +15,6 @@ export class PhotoService {
   createPhoto(title: string, album: string, photo: File) {
     const fd = new FormData();
     fd.append('title', title);
-    /* xxxxxxxx
-      TODO: PASAR USUARIO LOGUEADO EN EL SISTEMA
-        YA QUE ACA ESTAMOS PASANDO UN USUARIO FIJO   
-    */
-    // relacionar foto con album    
     fd.append('token', localStorage.getItem('token'));
     fd.append('album', album);
     fd.append('image', photo);

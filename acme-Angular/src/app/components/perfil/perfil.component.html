@@ -12,7 +12,12 @@
         <div *ngFor="let album of albums; let i = index" class="card-body">            
                 
             <h2> <a [routerLink]="['/album', album._id]"> {{ album.name }} </a>  </h2>
-            <img class="img-fluid" [src]="'http://localhost:3000/' + photos[i].path" alt="Card image cap">      
+            <div *ngIf="photos[i];np">
+                <img class="img-fluid" [src]="'http://localhost:3000/' + photos[i].path" alt="Card image cap">
+            </div>              
+            <ng-template #np>
+                <img class="img-fluid" src="http://localhost:3000/uploads/album.jpg" alt="Card">
+            </ng-template>                  
         </div>        
     </div>
 </div>
